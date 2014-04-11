@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="css/os-linebars.css" />
+        <style>
+            .content {
+                width: 620px;
+                margin-left: auto;
+                margin-right: auto;
+                font-family: helvetica, sans;
+                }
+        </style>
+    </head>
+    <body>
+        <div class="content">
+            <h1>LineBarcharts for OpenSpending</h1>
+            <p>A combination between Barcharts and linecharts - shows different
+            categories as barcharts with a rough upper edge representing a
+            linechart of the changes between different years</p>
+            <p>The data below shows the main categories of the Frontex budget
+            from 2011 to 2013 - note the sharp drop in operational costs. Still
+            it remains the biggest budget category</p>
+            <a href="http://github.com/mihi-tr/openspending-linebars">Fork on
+            Github</a>
+            <div id="graph">
+            </div>
+        </div>
+        <script src="js/vendor/d3.v3.min.js"> </script>
+        <script src="js/vendor/underscore-min.js"></script>
+        <script src="js/os-linebars.js"></script>
+        <script>
+            var config={
+                siteUrl: 'https://openspending.org',
+                dataset: 'frontex',
+                measure: 'amount',
+                drilldowns: ['time.year', 'Heading'],
+                cuts: ['time.year:2011','time.year:2012','time.year:2013'],
+                element: '#graph',
+                width: 600,
+                height: 400 };
+            OpenSpending.linebars(config);
+        </script>
+    </body>
+
+</html>
